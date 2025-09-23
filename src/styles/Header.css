@@ -1,0 +1,63 @@
+
+.kaldi-container {
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;       
+  justify-content: space-between;
+  
+  
+}
+
+.kaldi-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  
+}
+
+.kaldi-logo {
+  max-height: 140px;  /* más pequeño */
+  width: auto;
+  border-radius: 60%; 
+  
+}
+
+.kaldi-title {
+  font-family: var(--title-font);
+  font-size: 2.5rem;   /* un poco más chico */
+  margin: 0;
+  color: var(--text);
+}
+
+.kaldi-nav ul {
+  display: flex;
+  gap: 2rem;           /* más separación entre enlaces */
+  list-style: none;
+  margin: 0;
+  padding: 3rem;
+  overflow: hidden;
+}
+
+.kaldi-nav a {
+  font-family: var(--title-font);
+  font-size: 1.3rem;
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+}
+
+.kaldi-nav a:hover {
+  color: #A79A85;
+  line-height: 1cap;
+}
+
+
+
+
+@media (max-width: 768px) {
+.tempo-nav {
+display: none;
+}
+}
