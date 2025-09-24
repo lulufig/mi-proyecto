@@ -14,4 +14,4 @@ If you are developing a production application, we recommend using TypeScript wi
 # DISEÑO DEL PROYECTO
 # Este es el prototipo visual de la landing page creado en canva
 
-[Ver diseño en Canva](https://www.canva.com/design/DAGz03AmPh0/gk1pvNjp9wiZu6_EjeE2-g/edit?utm_content=DAGz03AmPh0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+[Ver diseño en Canva](http://bit.ly/4muNo16)
