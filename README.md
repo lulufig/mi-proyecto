@@ -11,4 +11,7 @@ Currently, two official plugins are available:
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
 
-[Ver diseño en Canva](https://www.canva.com/design/DAGz03AmPh0/jLVSyWVVDEkZGV7fl2q_lg/view?utm_content=DAGz03AmPh0&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h3169410cf6)
+# DISEÑO DEL PROYECTO
+# Este es el prototipo visual de la landing page creado en canva
+
+[Ver diseño en Canva](https://www.canva.com/design/DAGz03AmPh0/gk1pvNjp9wiZu6_EjeE2-g/edit?utm_content=DAGz03AmPh0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
