@@ -1,6 +1,6 @@
 import React from 'react'
 import logo from '../assets/logo-kaldi.png'
-import '../styles/Header.css'
+import '../components/styles/Header.css'
 
 
 const Header = () => {
