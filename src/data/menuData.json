@@ -1,0 +1,33 @@
+[
+    {
+        "categoria":"Cafes",
+        "items":[
+            {
+                "nombre":"Espresso",
+                "precio": 1.000,
+                "descripcion":"Cafe fuerte  y concentrado, servido en taza pequeña."
+            },
+            {
+                "nombre":"Latte",
+                "precio": 2.000,
+                "descripcion":"Espresso con leche vaporizada y espuma de Leche."
+
+            }
+        ]
+    },
+    {
+        "categoria":"Postres",
+        "items": [
+            {
+                "nombre":"Tarta de chocolate",
+                "precio":5.000,
+                "descripcion":"Tarta rica con ganache de chocolate y base de galleta."
+            },
+            {
+                "nombre":"Croissant",
+                "precio": 3.000,
+                "descripcion":"Croissant frances hojaldrado y mantecoso."
+            }
+        ]
+    }
+]
