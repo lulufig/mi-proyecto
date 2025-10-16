@@ -1,0 +1,219 @@
+
+:root {
+  --color-bg: #FAF1E6;
+  --color-text: #473A35;
+  --color-accent: #A79A85;
+  --color-btn: #6f4e37;
+  --color-btnhover: #8b5e3c;
+  --title-font: 'Playball', cursive;
+  --body-font: 'Alice', serif;
+}
+
+.menu {
+  width: 100%;
+  margin: 0;
+  padding: 2rem;
+  text-align: center;
+  background-color: var(--color-bg);
+  font-family: var(--body-font);
+}
+
+.menu h2 {
+  font-family: var(--title-font);
+  font-size: 3rem;
+  color: var(--color-text);
+  margin-bottom: 2rem;
+  margin-top: 2.5rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Botones de categorías */
+.menu-categories {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.menu-categories button {
+  padding: 0.5rem 2.5rem;
+  border: 2px solid var(--color-accent);
+  background-color: var(--color-btn);
+  color: #fff;
+  font-family: var(--body-font);
+  font-size: 1.1rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.menu-categories button:hover {
+  background-color: var(--color-btnhover);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.menu-categories button.active {
+  background-color: var(--color-btn);
+  color: var(--color-bg);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.menu-categories button:focus {
+  outline: 3px solid var(--color-text);
+  outline-offset: 2px;
+}
+
+/* Navegación horizontal */
+.menu-navigation {
+  position: relative;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 1;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-button:hover {
+  background-color: var(--color-text);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.nav-button.left {
+  left: 0;
+}
+
+.nav-button.right {
+  right: 0;
+}
+
+.nav-button:focus {
+  outline: 3px solid var(--color-bg);
+  outline-offset: 2px;
+}
+
+/* Contenedor de ítems horizontal */
+.menu-items {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 1rem 0;
+  -webkit-overflow-scrolling: touch; /* Suaviza desplazamiento en móvil */
+}
+
+.menu-item {
+  height: auto;
+  width: 350px;
+  background-color: #bcac91;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex-shrink: 0; /* Evita que las cards se compriman */
+}
+
+.menu-item:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.menu-item:focus-within {
+  outline: 3px solid var(--color-text);
+  outline-offset: 2px;
+}
+
+.menu-item-img {
+  max-width: 100px;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  object-fit: cover;
+}
+
+.menu-item h3 {
+  font-family: var(--title-font);
+  font-size: 1.5rem;
+  color: var(--color-text);
+  margin-bottom: 0.5rem;
+}
+
+.menu-item .price {
+  font-weight: bold;
+  color: var(--color-text);
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+}
+
+.menu-item p {
+  font-size: 1rem;
+  color: var(--color-text);
+}
+
+.popular-badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+  font-size: 0.8rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .menu {
+    padding: 1rem 0;
+  }
+
+  .menu h2 {
+    font-size: 2rem;
+  }
+
+  .menu-categories {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .menu-categories button {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .menu-items {
+    flex-direction: column; /* Apila verticalmente en móvil */
+    overflow-x: hidden; /* Desactiva desplazamiento horizontal */
+  }
+
+  .menu-item {
+    min-width: 100%; /* Ocupa todo el ancho en móvil */
+  }
+
+  .nav-button {
+    display: none; /* Oculta botones en móvil */
+  }
+}

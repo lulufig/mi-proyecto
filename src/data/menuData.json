@@ -1,0 +1,68 @@
+[
+  {
+    "categoria": "Cafés",
+    "items": [
+      {
+        "nombre": "Espresso",
+        "precio": 2.50,
+        "descripcion": "Café fuerte y concentrado, servido en taza pequeña.",
+        "image": "/src/assets/espresso.png",
+        "popular": true
+      },
+      {
+        "nombre": "Latte",
+        "precio": 3.50,
+        "descripcion": "Espresso con leche vaporizada y espuma.",
+        "image":"/src/assets/latte.png",
+        "popular": false
+      },
+      {
+        "nombre": "Cappuccino",
+        "precio": 3.00,
+        "descripcion": "Espresso con leche vaporizada y una capa de espuma.",
+        "image":"/src/assets/capuccino.png",
+        "popular": true
+      },
+      {
+        "nombre": "Americano",
+        "precio": 2.75,
+        "descripcion": "Espresso alargado con agua caliente.",
+        "image":"/src/assets/americano.png",
+        "popular": false
+      }
+    ]
+  },
+  {
+    "categoria": "Postres",
+    "items": [
+      {
+        "nombre": "Tarta de Chocolate",
+        "precio": 4.00,
+        "descripcion": "Tarta rica con ganache de chocolate.",
+        "image":"/src/assets/tarta-de-chocolate.png",
+        "popular": true
+      },
+      {
+        "nombre": "Croissant",
+        "precio": 2.00,
+        "descripcion": "Croissant crujiente recién horneado.",
+        "image":"/src/assets/croissant.png",
+        "popular": false
+      },
+      {
+        "nombre": "Muffin de Arándanos",
+        "precio": 2.50,
+        "descripcion": "Muffin suave con arándanos frescos.",
+        "image":"/src/assets/muffins-de-arandanos.png",
+        "popular": true
+      },
+      {
+        "nombre": "Galletas",
+        "precio": 1.50,
+        "descripcion": "Galletas caseras variadas.",
+        "image":"/src/assets/galletas.png",
+        "popular": false
+      }
+    ]
+  }
+]
