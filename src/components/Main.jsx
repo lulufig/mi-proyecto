@@ -11,7 +11,7 @@ const Main = () => {
        {/*Contenido superpuesto */}
         <div className='hero-content'>
           <div className='hero-title-group'>
-            <h1 className='hero-title'>COFFEE KALDI</h1>
+            <h1 className='hero-title'>COFFE KALDI</h1>
           </div>
           <p className='hero-subtitle'>Descubre el sabor autentico del cafe artesanal en un ambiente unico.</p>
 

@@ -15,9 +15,11 @@
   box-sizing: border-box;
 }
 
-body {
-  width: 100vw;
+body, html{
   overflow-x: hidden; /* Evita desplazamiento horizontal */
+  margin: 0;
+  padding: 0;
+  
 }
 
 .container {
