@@ -5,8 +5,8 @@ import Menu from './components/Menu'
 import AboutUs from './components/AboutUs'
 import Gallery from './components/Gallery'
 import Reservation from './components/Reservation'
-import './index.css'
 import ContactMap from './components/Contactmap'
+import './index.css'
 
 function App () {
 
@@ -14,7 +14,6 @@ function App () {
     <>
       <Header />
       <Main />
-      <Footer />
       <Menu />
       <AboutUs />
       <Gallery />
