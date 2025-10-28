@@ -5,7 +5,7 @@
 }
 
 .hero {
-    background-image: url('/vista-superior-de-granos-de-cafe-sobre-un-espacio-de-fondo-blanco-para-texto.jpg');
+    background-image: url(/public/taza-de-cafe-con-granos-tostados[1].jpg);
     position: relative;
     background-repeat: no-repeat;
     background-size: cover;
@@ -13,9 +13,9 @@
     height: 600px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    padding-left: 3rem;
 }
-
 
 .hero-title-group {
   display: flex;
@@ -25,7 +25,7 @@
 }
 
 .hero-title {
-  font-size: 5rem;
+  font-size: 8rem;
   font-weight: bold;
   font-family: 'Playfair Display', serif;
   margin: 0;
@@ -34,8 +34,8 @@
 
 /* Contenido superpuesto */
 .hero-content {
-  text-align: center;
-  color: black;
+  text-align: left;
+  color: white;
   max-width: 800px;
   z-index: 2;
   padding: 1rem;
@@ -45,10 +45,12 @@
 /*Texto promocional*/
 .hero-subtitle {
     color: var(--color-text);
-    text-align: center;;
+    text-align: center;
     font-family: 'Playball', cursive;
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin-bottom: 1rem;
+    letter-spacing: 1px;
+    color: #fff;
 }
 
 /*Botones CTA*/
@@ -60,6 +62,9 @@
     font-family: var(--body-font);
     text-decoration: none;
     transition: backgroud-color 0.3s ease;
+    justify-content: flex-start;
+  
+  
 }
 
 .btn-primary {
