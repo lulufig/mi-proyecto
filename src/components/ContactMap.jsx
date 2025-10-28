@@ -15,7 +15,7 @@ function ContactMap() {
       {/* CARD CENTRADO */}
       <div className="map-overlay-card">
         <h3>Kaldi Café</h3>
-        <p><strong>Dirección:</strong> Av. Café 123, Col. Centro</p>
+        <p><strong>Dirección</strong> Av. Café 123, Col. Centro</p>
         <p><strong>Horario:</strong> 7:00 AM - 9:00 PM</p>
         <p><strong>Tel:</strong> (55) 1234-5678</p>
         <a 
