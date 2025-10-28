@@ -30,7 +30,7 @@ const Gallery = () => {
 
   return (
     <section className="gallery-section" aria-label="Galería de productos y espacios">
-      <h2 className="gallery-title">Galería Kaldi</h2>
+      {/*<h2 className="gallery-title">Galería Kaldi</h2>*/}
       <div className="gallery-grid">
         {images.map((img, index) => (
           <div className="gallery-item" key={index} style={{ animationDelay: `${index * 0.2}s` }}>
