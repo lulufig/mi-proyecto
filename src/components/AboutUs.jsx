@@ -10,7 +10,7 @@ const AboutUs = () => {
                     <h2 className='about-us-title'>Sobre Nosotros</h2>
                     <div className='about-us-divider'></div>
                     <p className='about-us-description'>
-                        En <strong> Coffe Kaldi</strong> celebramos el arte del café artesanal. Nuestra historia comienza con una pasión por los sabores autenticos y los espacios que invitan a quedarse. Desde nuestros inicios, nos propusimos crear una cafeteria donde cada taza cuente una historia, y cada visita se sienta como volver a casa.
+                        En <strong> Kaldi Café</strong> celebramos el arte del café artesanal. Nuestra historia comienza con una pasión por los sabores autenticos y los espacios que invitan a quedarse. Desde nuestros inicios, nos propusimos crear una cafeteria donde cada taza cuente una historia, y cada visita se sienta como volver a casa.
                     </p>
 
                     <p className='about-us-description'>
