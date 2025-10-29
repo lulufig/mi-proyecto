@@ -30,6 +30,12 @@
   font-family: 'Playfair Display', serif;
   margin: 0;
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+  line-height: 1.1;
+}
+
+.title-line2 {
+  margin-left: 13rem;
+
 }
 
 /* Contenido superpuesto */
@@ -41,51 +47,57 @@
   padding: 1rem;
 }
 
+.hero-divider {
+  width: 160px;               /* largo de la línea */
+  height: 2px;               /* grosor */
+  background-color: #fff;    /* color de la línea */
+  margin: 1rem auto;            /* espacio arriba y abajo */
+  border: none;
+}
 
 /*Texto promocional*/
 .hero-subtitle {
     color: var(--color-text);
     text-align: center;
     font-family: 'Playball', cursive;
-    font-size: 2rem;
+    font-size: 1.6rem;
     margin-bottom: 1rem;
     letter-spacing: 1px;
     color: #fff;
+    margin-top: 30px;
 }
 
 /*Botones CTA*/
-.hero-buttons .btn {
-    padding: 0.75rem 1.5rem;
-    margin: 0 0.5rem;
+.hero-buttons {
     border: none;
     border-radius: 5px;
     font-family: var(--body-font);
     text-decoration: none;
-    transition: backgroud-color 0.3s ease;
     justify-content: flex-start;
-  
-  
+    gap: 2rem;
+    margin-top: 1.5rem;
+    margin-left: 28%;
+    display: flex;
 }
 
-.btn-primary {
-    background-color: #6f4e37;
-    color: #fff;
-}
-
-.btn-primary:hover {
-    background-color: #8b5e3c;
-    cursor: pointer;
-}
-
-.btn-secondary {
-    background-color: #fff;
-    color: #6f4e37;
-}
-
-.btn-secondary:hover {
-  background-color: #f0e6dc;
+.btn {
+  padding: 0.6rem 1.2rem;
+  border-radius: 5px;
+  font-weight:normal;
   cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+  border: 2px solid #fff;
+  background-color: transparent;
+  color: #fff;
 }
+
+.btn:hover {
+  transform: scale(1.05);
+  background-color: rgba(255, 255, 255, 0.1); /* leve fondo al pasar el mouse */
+}
+
 
 /* Animaciones sutiles */
 @keyframes fadeIn {
@@ -97,4 +109,5 @@
   from { transform: translate(-50%, 20%); opacity: 0; }
   to { transform: translate(-50%, -50%); opacity: 1; }
 }
+
 
