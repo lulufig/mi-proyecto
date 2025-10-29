@@ -29,6 +29,20 @@
         "descripcion": "Espresso alargado con agua caliente.",
         "image":"/src/assets/americano.png",
         "popular": false
+      },
+      {
+        "nombre": "Afogatto",
+        "precio": 4.00,
+        "descripcion": "Café espresso servido sobre una bola de helado de vainilla.",
+        "image":"/src/assets/afogatto.png",
+        "popular": true
+      },
+      {
+        "nombre":"Mocachino",
+        "precio": 3.75,
+        "descripcion": "Café espresso con chocolate y leche vaporizada.",
+        "image":"/src/assets/mocaccino.png",
+        "popular": false
       }
     ]
   },
@@ -62,6 +76,12 @@
         "descripcion": "Galletas caseras variadas.",
         "image":"/src/assets/galletas.png",
         "popular": false
+      },
+      {
+        "nombre":"Avocado Toast",
+        "precio": 3.50,
+        "descripcion": "Tostada con aguacate, y huevo pochado.",
+        "image":"/src/assets/avocado.png"
       }
     ]
   }
