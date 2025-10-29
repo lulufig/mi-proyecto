@@ -3,7 +3,7 @@ import '../components/styles/AboutUs.css'
 
 const AboutUs = () => {
     return (
-        <aboutus className='about-us'>
+        <section className='about-us'>
         <section className='about-us'aria-label='Seccion Sobre Nosotros'>
             <div className='about-us-overlay'></div>
                 <div className='about-us-content'>
@@ -40,7 +40,7 @@ const AboutUs = () => {
             </div>
         </section>
 
-        </aboutus>
+        </section>
     )
 }
 
