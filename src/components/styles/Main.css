@@ -10,7 +10,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    height: 600px;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: flex-start;

@@ -1,150 +1,170 @@
+/* === SOBRE NOSOTROS – KALDI CAFÉ === */
 .about-us {
-  background: radial-gradient(circle at center, rgba(184,139,106,0.6), rgba(0,0,0,0.6)), url(/public/rir.jpeg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  padding: 0.1rem 0.1rem;
+  position: relative;
+  padding: 6rem 0;
+  background: 
+    linear-gradient(rgba(184,139,106,0.4), rgba(0,0,0,0.4)),
+    url('/rir.jpeg') center/cover no-repeat;
   color: #fdf8f3;
   font-family: var(--body-font);
-  width: 100vw; 
-  min-height: 100vh;
-  overflow-x: hidden;
-  position: relative;
+  overflow: hidden;
   margin: 0;
-  margin-top: 0;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+  min-height: 100vh;
 }
 
-.about-us-overlay {
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.3); 
-  display: flex;
-  justify-content: center;
-}
-
-.about-us-title {
-  font-size: 3.1rem;
-  font-family:  'Playfair Display', serif;
-  text-align: center;
-  margin-bottom: 0.2rem;
-  color: white;
-  animation: fadeInUp 3s ease forwards;
-  opacity: 0;
-  transform: translateY(0);
-  letter-spacing: 1px;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-  margin-top: 0.2rem;
-}
-
-.about-us-content {
+.about-us-container {
+  width: 80%;
   max-width: 1200px;
-  background: transparent;
-  padding: 4rem 2rem;
-  box-sizing: border-box;
   margin: 0 auto;
 }
 
-.about-us-description {
-  max-width: 700px;
-  margin: 0 auto 1.5rem auto;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  text-align: center;
-  animation: fadeInUp 3s ease forwards;
+/* Overlay */
+.about-us::before {
+  content: '';
+  position: absolute;
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+
+
+.about-us-title {
+  font-size: 3.1rem;
+  font-family: 'Playfair Display', serif;
+  margin: 0 0 1rem;
+  color: var(--color-text);
+  animation: fadeInUp 1.5s ease forwards;
   opacity: 0;
-  transform: translateY(0);
-  margin-bottom: 1.5rem;
-
-}
-
-.about-us-gallery{
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  margin-top: 2rem;
-  flex-wrap: wrap;
-}
-
-.about-us-gallery img {
-  width: 100%;
-  max-width: 400px;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.about-us-gallery img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
+  transform: translateY(20px);
+  letter-spacing: 1px;
+  text-shadow: none;
 }
 
 .about-us-divider {
-    width: 60px;
-    height: 4px;
-    background-color: #fffaf3;
-    margin: 2rem auto;
-    border-radius: 2px;
-}
-
-.gallery-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 300px;
-  animation: fadeInUp 0.8s ease forwards;
+  width: 80px;
+  height: 4px;
+  background: var(--color-accent);
+  margin: 2rem auto;
+  border-radius: 2px;
+  animation: fadeInUp 1.8s ease forwards;
   opacity: 0;
   transform: translateY(20px);
 }
 
-.gallery-item:nth-child(1) {
-  animation-delay: 1s;
-}
-.gallery-item:nth-child(2) {
-  animation-delay: 1.6s;
-}
-.gallery-item:nth-child(3) {
-  animation-delay: 2.1s;
-}
-
-.gallery-caption {
-  opacity: 0;
-  transform: translateY(10px);
-  animation: fadeInUp 4s ease forwards;
-  animation-delay: 0.5s;
-  font-family: var(--body-font);
+/* Descripciones */
+.about-us-description {
+  max-width: 800px;
+  margin: 0 auto 1.8rem;
   font-size: 1.1rem;
-  margin-top: 0.5rem;
-  text-align: center;
-}
-
-.gallery-item:nth-child(1) .gallery-caption {
-  animation-delay: 1s;
-}
-.gallery-item:nth-child(2) .gallery-caption {
-  animation-delay: 1.6s;
-}
-.gallery-item:nth-child(3) .gallery-caption {
-  animation-delay: 2s;
-}
-
-.about-us-quote {
-  text-align: center;
-  font-style: italic;
-  color: #fffaf3;
-  margin-top: 3rem;
-  font-size: 1.2rem;
+  line-height: 1.8;
+  color: var(--color-text);
+  animation: fadeInUp 2s ease forwards;
   opacity: 0;
   transform: translateY(20px);
-  animation: fadeInUp 2s ease forwards;
-  animation-delay: 2s; /* aparece después de las imágenes */
+  text-align: justify;
 }
 
+.about-us-description:nth-of-type(1) { 
+  animation-delay: 0.8s; 
+}
+
+.about-us-description:nth-of-type(2) { 
+  animation-delay: 1.2s; 
+}
+
+.about-us-description strong {
+  color: var(--color-accent);
+}
+/* ALTERNATIVA: Galería horizontal */
+.about-us-gallery {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 1rem 0;
+  margin: 3rem 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-accent) rgba(0,0,0,0.1);
+}
+
+.about-us-gallery .gallery-item {
+  flex: 0 0 350px;
+  scroll-snap-align: start;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  background: #fff;
+}
+
+.about-us-gallery .gallery-item img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+}
+
+.about-us-gallery .gallery-caption {
+  padding: 1rem;
+  text-align: center;
+  color: var(--color-text);
+  font-size: 0.9rem;
+}
+
+
+
+
+/* === ANIMACIÓN === */
 @keyframes fadeInUp {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 992px) {
+  .about-us-content { 
+    padding: 2.5rem 1.5rem; 
+  }
+  .about-us-title { 
+    font-size: 2.6rem; 
+  }
+}
+
+@media (max-width: 768px) {
+  .about-us { 
+    padding: 4rem 0; 
+  }
+  .about-us-content { 
+    padding: 2rem 1rem; 
+    margin: 1rem auto; 
+    border-radius: 16px;
+  }
+  .about-us-title { 
+    font-size: 2.3rem; 
+  }
+  .about-us-description { 
+    font-size: 1rem; 
+    text-align: center; 
+  }
+  .about-us-quote { 
+    font-size: 1.2rem; 
+    padding: 1rem; 
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-us-title { 
+    font-size: 2rem; 
+  }
+  .about-us-description { 
+    font-size: 0.95rem; 
   }
 }
