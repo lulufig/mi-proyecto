@@ -21,7 +21,7 @@ function Menu() {
   };
 
   return (
-    <section className="menu" aria-label="Menú digital de Kaldi Café">
+    <section className="menu" id="menu" aria-label="Menú digital de Kaldi Café">
       <h2>Nuestro Menú</h2>
       <div className="menu-categories">
         <button
