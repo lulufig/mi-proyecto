@@ -1,12 +1,12 @@
 
-/* === MENÚ MINIMALISTA === */
+/* === MENÚ MINIMALISTA CON CARRUSEL === */
 .menu-section {
   background: #fafafa;
   padding: 8rem 2rem;
 }
 
 .menu-container {
-  max-width: 1300px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
@@ -65,18 +65,68 @@
   border-color: #2e1f17;
 }
 
-/* === GRID === */
-.menu-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 3rem;
+/* === CARRUSEL WRAPPER === */
+.menu-carousel-wrapper {
+  position: relative;
+  padding: 0 60px;
+}
+
+/* === BOTONES DE NAVEGACIÓN === */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  color: #2e1f17;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-btn:hover {
+  background: #2e1f17;
+  color: #fff;
+  border-color: #2e1f17;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-btn-left {
+  left: 0;
+}
+
+.carousel-btn-right {
+  right: 0;
+}
+
+/* === CARRUSEL === */
+.menu-carousel {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 1rem 0;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.menu-carousel::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
 }
 
 /* === ITEM === */
 .menu-item {
+  flex: 0 0 320px;
   background: #fff;
   overflow: hidden;
   transition: all 0.3s ease;
+  scroll-snap-align: start;
 }
 
 .menu-item:hover {
@@ -147,11 +197,30 @@
   font-weight: 300;
 }
 
+/* === INDICADOR DE SCROLL === */
+.scroll-hint {
+  text-align: center;
+  margin-top: 2.5rem;
+  font-size: 0.95rem;
+  color: #999;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+}
+
 /* === RESPONSIVE === */
-@media (max-width: 1200px) {
-  .menu-grid {
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 2.5rem;
+@media (max-width: 992px) {
+  .menu-carousel-wrapper {
+    padding: 0 50px;
+  }
+
+  .carousel-btn {
+    width: 45px;
+    height: 45px;
+    font-size: 1.3rem;
+  }
+
+  .menu-item {
+    flex: 0 0 300px;
   }
 }
 
@@ -178,9 +247,18 @@
     font-size: 0.95rem;
   }
 
-  .menu-grid {
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 2rem;
+  .menu-carousel-wrapper {
+    padding: 0 40px;
+  }
+
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+
+  .menu-item {
+    flex: 0 0 280px;
   }
 
   .item-image {
@@ -219,9 +297,22 @@
     width: 100%;
   }
 
-  .menu-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+  .menu-carousel-wrapper {
+    padding: 0 35px;
+  }
+
+  .carousel-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+
+  .menu-carousel {
+    gap: 1.5rem;
+  }
+
+  .menu-item {
+    flex: 0 0 260px;
   }
 
   .item-image {
@@ -242,5 +333,10 @@
 
   .item-description {
     font-size: 0.9rem;
+  }
+
+  .scroll-hint {
+    font-size: 0.85rem;
+    margin-top: 2rem;
   }
 }
