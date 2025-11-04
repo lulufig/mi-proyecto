@@ -4,42 +4,42 @@
     "items": [
       {
         "nombre": "Espresso",
-        "precio": 2.50,
+        "precio": 1200,
         "descripcion": "Café fuerte y concentrado, servido en taza pequeña.",
         "image": "/src/assets/espresso.png",
         "popular": true
       },
       {
         "nombre": "Latte",
-        "precio": 3.50,
+        "precio": 1700,
         "descripcion": "Espresso con leche vaporizada y espuma.",
         "image":"/src/assets/latte.png",
         "popular": false
       },
       {
         "nombre": "Cappuccino",
-        "precio": 3.00,
+        "precio": 1900,
         "descripcion": "Espresso con leche vaporizada y una capa de espuma.",
         "image":"/src/assets/capuccino.png",
         "popular": true
       },
       {
         "nombre": "Americano",
-        "precio": 2.75,
+        "precio": 1000,
         "descripcion": "Espresso alargado con agua caliente.",
         "image":"/src/assets/americano.png",
         "popular": false
       },
       {
         "nombre": "Afogatto",
-        "precio": 4.00,
+        "precio": 2200,
         "descripcion": "Café espresso servido sobre una bola de helado de vainilla.",
         "image":"/src/assets/afogatto.png",
         "popular": true
       },
       {
         "nombre":"Mocachino",
-        "precio": 3.75,
+        "precio": 2000,
         "descripcion": "Café espresso con chocolate y leche vaporizada.",
         "image":"/src/assets/mocaccino.png",
         "popular": false
@@ -51,35 +51,35 @@
     "items": [
       {
         "nombre": "Tarta de Chocolate",
-        "precio": 4.00,
+        "precio": 3000,
         "descripcion": "Tarta rica con ganache de chocolate.",
         "image":"/src/assets/tarta-de-chocolate.png",
         "popular": true
       },
       {
         "nombre": "Croissant",
-        "precio": 2.00,
+        "precio": 1200,
         "descripcion": "Croissant crujiente recién horneado.",
         "image":"/src/assets/croissant.png",
         "popular": false
       },
       {
         "nombre": "Muffin de Arándanos",
-        "precio": 2.50,
+        "precio": 1500,
         "descripcion": "Muffin suave con arándanos frescos.",
         "image":"/src/assets/muffins-de-arandanos.png",
         "popular": true
       },
       {
         "nombre": "Galletas",
-        "precio": 1.50,
+        "precio": 800,
         "descripcion": "Galletas caseras variadas.",
         "image":"/src/assets/galletas.png",
         "popular": false
       },
       {
         "nombre":"Avocado Toast",
-        "precio": 3.50,
+        "precio": 5000,
         "descripcion": "Tostada con aguacate, y huevo pochado.",
         "image":"/src/assets/avocado.png"
       }
