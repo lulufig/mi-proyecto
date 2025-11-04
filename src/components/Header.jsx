@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { FaCoffee } from 'react-icons/fa';
 import '../components/styles/Header.css';
 
 const Header = () => {
@@ -27,9 +28,12 @@ const Header = () => {
       <div className="header-container">
         
         {/* Logo */}
-        <div className="header-logo">
+        {/* <div className="header-logo">
           <a href="#inicio">Kaldi Café</a>
-        </div>
+        </div> */}
+          <div className="logo">
+            <FaCoffee className="logo-icon" />         
+          </div>
 
         {/* Navegación Desktop */}
         <nav className="header-nav">
