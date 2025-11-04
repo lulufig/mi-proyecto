@@ -1,30 +1,70 @@
-import React from 'react'
-import logo from '../assets/logo-kaldi.png'
-import '../components/styles/Header.css'
-
+import React, { useState, useEffect } from 'react';
+import { FaCoffee } from 'react-icons/fa';
+import '../components/styles/Header.css';
 
 const Header = () => {
-  return (
-    <header className='kaldi-header' role='banner' aria-label='Kaldi Cafe header'>
-      <div className='kaldi-container'>
-        <div className='kaldi-brand'>
-          <img src={logo} alt="Kaldi Cafe logo" className='kaldi-logo' /> 
-          <h1 className='kaldi-title'>Kaldi Café</h1>
-        </div>
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
-        <nav className='kaldi-nav' role='navigation' aria-label='Menu principal'>
-          <ul>
-            <li><a href="#inicio">INICIO</a></li>
-            <li><a href="#menu">MENU</a></li>
-            <li><a href="#historia">HISTORIA</a></li>
-            <li><a href="#contacto">CONTACTO</a></li>
-          </ul>
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
+  return (
+    <header className={`header ${scrolled ? 'scrolled' : ''}`}>
+      <div className="header-container">
+        
+        {/* Logo */}
+        {/* <div className="header-logo">
+          <a href="#inicio">Kaldi Café</a>
+        </div> */}
+          <div className="logo">
+            <FaCoffee className="logo-icon" />         
+          </div>
+
+        {/* Navegación Desktop */}
+        <nav className="header-nav">
+          <a href="#inicio">Inicio</a>
+          <a href="#menu">Menú</a>
+          <a href="#historia">Historia</a>
+          <a href="#contacto">Contacto</a>
         </nav>
+
+        {/* Botón Hamburguesa */}
+        <button 
+          className={`menu-toggle ${menuOpen ? 'active' : ''}`}
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
 
       </div>
 
+      {/* Menú Mobile */}
+      <div className={`mobile-menu ${menuOpen ? 'active' : ''}`}>
+        <a href="#inicio" onClick={closeMenu}>Inicio</a>
+        <a href="#menu" onClick={closeMenu}>Menú</a>
+        <a href="#historia" onClick={closeMenu}>Historia</a>
+        <a href="#contacto" onClick={closeMenu}>Contacto</a>
+      </div>
     </header>
-  ); 
-}
+  );
+};
 
-export default Header
+export default Header;

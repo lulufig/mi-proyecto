@@ -28,7 +28,7 @@ const Reservation = () => {
   };
 
   return (
-    <section className="section-wrapper">
+    <section className="section-wrapper" id="contacto">
       <h2 className="section-title">Reservas & Contacto</h2>
       <div className="section-divider"></div>
 
