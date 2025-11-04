@@ -2,47 +2,72 @@ import React from 'react';
 import '../components/styles/AboutUs.css';
 
 const AboutUs = () => {
-    return (
-        <section className='about-us'>
-        <section className='about-us'aria-label='Seccion Sobre Nosotros'>
-            <div className='about-us-overlay'></div>
-                <div className='about-us-content'>
-                    <h2 className='about-us-title'>Sobre Nosotros</h2>
-                    <div className='about-us-divider'></div>
-                    <p className='about-us-description'>
-                        En <strong> Kaldi Café</strong> celebramos el arte del café artesanal. Nuestra historia comienza con una pasión por los sabores autenticos y los espacios que invitan a quedarse. Desde nuestros inicios, nos propusimos crear una cafeteria donde cada taza cuente una historia, y cada visita se sienta como volver a casa.
-                    </p>
+  return (
+    <section className="about-section" id="historia">
+      
+      <div className="about-container">
+        
+        {/* Título Principal */}
+        <h2 className="about-title">Sobre Nosotros</h2>
+        <div className="title-underline"></div>
 
-      <div className="about-us-content">
-        <h2 className="about-us-title">Sobre Nosotros</h2>
-        <div className="about-us-divider"></div>
+        {/* Contenido Principal */}
+        <div className="about-content">
+          
+          <div className="about-text">
+            <p className="intro-paragraph">
+              En <strong>Kaldi Café</strong> celebramos el arte del café artesanal. 
+              Nuestra historia comienza con una pasión por los sabores auténticos y 
+              los espacios que invitan a quedarse.
+            </p>
+            
+            <p>
+              Desde nuestros inicios, nos propusimos crear una cafetería donde cada 
+              taza cuente una historia, y cada visita se sienta como volver a casa. 
+              Valoramos la calidad, la calidez y la comunidad.
+            </p>
 
-        <p className="about-us-description">
-          En <strong>Kaldi Café</strong> celebramos el arte del café artesanal. Nuestra historia comienza con una pasión por los sabores auténticos y los espacios que invitan a quedarse. Desde nuestros inicios, nos propusimos crear una cafetería donde cada taza cuente una historia, y cada visita se sienta como volver a casa.
-        </p>
-
-        <p className="about-us-description">
-          Valoramos la calidad, la calidez y la comunidad. Usamos granos seleccionados, técnicas tradicionales y un ambiente diseñado para el disfrute. Creemos en el poder de una buena comunicación, en la pausa que regala el aroma del café, y en los pequeños detalles que hacen grande una experiencia.
-        </p>
-
-        <div className="about-us-divider"></div>
-
-        </section>
-    )
-}
-
-          <div className="gallery-item">
-            <img src="/barista.jpg" alt="Preparación de café artesanal" />
-            <p className="gallery-caption">Preparación de café artesanal con dedicación</p>
+            <p>
+              Usamos granos seleccionados, técnicas tradicionales y un ambiente 
+              diseñado para el disfrute. Creemos en el poder de una buena conversación, 
+              en la pausa que regala el aroma del café, y en los pequeños detalles 
+              que hacen grande una experiencia.
+            </p>
           </div>
 
-          <div className="gallery-item">
-            <img src="/cafe-sol.jpg" alt="Café con un toque natural para comenzar tu día" />
-            <p className="gallery-caption">Café con un toque natural para comenzar tu día</p>
+          <div className="about-values">
+            <div className="value-box">
+              <h3>Nuestra Misión</h3>
+              <p>
+                Ofrecer una experiencia única de café artesanal en un ambiente 
+                acogedor que inspire conexión y comunidad.
+              </p>
+            </div>
+
+            <div className="value-box">
+              <h3>Nuestros Valores</h3>
+              <p>
+                Calidad, autenticidad, sostenibilidad y pasión por el café y las 
+                personas.
+              </p>
+            </div>
+
+            <div className="value-box">
+              <h3>Nuestra Visión</h3>
+              <p>
+                Ser el punto de encuentro favorito donde el café de calidad 
+                se une con momentos memorables.
+              </p>
+            </div>
           </div>
+
         </div>
 
-        <p className="about-us-quote">“Cada taza cuenta una historia, cada sorbo una conexión.”</p>
+        {/* Cita Final */}
+        <blockquote className="about-quote">
+          "Cada taza cuenta una historia, cada sorbo una conexión."
+        </blockquote>
+
       </div>
     </section>
   );
