@@ -224,11 +224,11 @@ Las contribuciones son bienvenidas. Por favor:
 
 Este proyecto está bajo la Licencia MIT.
 
-## 👤 Autor
+## 👤 Autores
 
-**Tu Nombre**
-- GitHub: [@lulufig](https://github.com/lulufig) [@lulufig](https://github.com/lulufig)
-- Email: flourdes098@gmail.com 
+
+- GitHub: [@lulufig](https://github.com/lulufig) | [@soffmedina](https://github.com/soffmedina)
+- Email: flourdes098@gmail.com | sm911682@gmail.com
 
 
 
