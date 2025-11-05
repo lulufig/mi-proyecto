@@ -5,7 +5,7 @@ import Menu from './components/Menu'
 import AboutUs from './components/AboutUs'
 import Gallery from './components/Gallery'
 import Reservation from './components/Reservation'
-import ContactMap from './components/Contactmap'
+import ContactMap from './components/ContactMap'
 import './index.css'
 
 
