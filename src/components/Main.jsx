@@ -1,7 +1,10 @@
 import React from 'react';
+import useScrollReveal from '../hooks/useScrollReveal';
 import '../components/styles/Main.css';
 
 const Main = () => {
+  // Hook para animaciones al hacer scroll
+  useScrollReveal( '.animada', 0.7);
   
   // Función para hacer scroll suave a una sección
   const scrollToSection = (sectionId) => {
@@ -16,9 +19,9 @@ const Main = () => {
 
   return (
     <main className="main">
-      <section className="hero">
+      <section className="hero" id="inicio">
         {/* Contenido superpuesto */}
-        <div className="hero-content">
+        <div className="hero-content animada zoom-in">
           <div className="hero-title-group">
             <h1 className="hero-title">
               <span className="title-line1">KALDI</span>

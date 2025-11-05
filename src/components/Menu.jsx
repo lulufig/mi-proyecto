@@ -1,8 +1,13 @@
 import React, { useState, useRef } from 'react';
 import menuData from '../data/menuData.json';
+import useScrollReveal from '../hooks/useScrollReveal';
 import '../components/styles/Menu.css';
 
 function Menu() {
+  // Hook para animaciones al hacer scroll
+  useScrollReveal('.animada', 0.6);
+  
+
   const [selectedCategory, setSelectedCategory] = useState('all');
   const scrollContainerRef = useRef(null);
 
@@ -23,10 +28,9 @@ function Menu() {
   };
 
   return (
-    <section className="menu-section" id="menu">
+    <section className="menu-section animada zoom-in" id="menu">
       
       <div className="menu-container">
-        
         {/* Título */}
         <div className="menu-header">
           <h2>Nuestro Menú</h2>

@@ -1,4 +1,5 @@
 import React from 'react';
+import useScrollReveal from '../hooks/useScrollReveal';
 import '../components/styles/Footer.css';
 import { 
   FaInstagram, 
@@ -7,28 +8,21 @@ import {
   FaMapMarkerAlt, 
   FaClock, 
   FaPhone,
-  FaEnvelope,
-  FaCoffee,
-  FaArrowUp
+  FaEnvelope
 } from 'react-icons/fa';
 
 function Footer() {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
+  // Hook para animaciones al hacer scroll
+  useScrollReveal('.animada');
   return (
-    <footer className="footer" role="contentinfo">
+    <footer className="footer">
       <div className="footer-container">
 
         {/* Logo + Info */}
         <div className="footer-brand">
-          <div className="logo">
-            <FaCoffee className="logo-icon" />
-            <h2>Kaldi Café</h2>
-          </div>
-          <p className="tagline">Donde el café es arte.</p>
-          <div className="contact-info">
+          <h2 className="footer-logo">Kaldi Café</h2>
+          <p className="footer-tagline">El arte del café en cada taza</p>
+          <div className="footer-contact">
             <p><FaMapMarkerAlt /> Av. Café 123, Col. Centro</p>
             <p><FaClock /> Lun-Dom: 7:00 AM - 9:00 PM</p>
             <p><FaPhone /> <a href="tel:+5512345678">(55) 1234-5678</a></p>
@@ -41,34 +35,32 @@ function Footer() {
           <ul>
             <li><a href="#inicio">Inicio</a></li>
             <li><a href="#menu">Menú</a></li>
-            <li><a href="#contacto">Contacto</a></li>
             <li><a href="#historia">Historia</a></li>
+            <li><a href="#contacto">Contacto</a></li>
           </ul>
         </div>
 
-        {/* Newsletter MEJORADO */}
+        {/* Newsletter */}
         <div className="footer-newsletter">
           <h3>Newsletter</h3>
-          <p>Recibe ofertas y nuevos sabores</p>
+          <p>Recibe noticias y ofertas</p>
           <form className="newsletter-form" onSubmit={(e) => e.preventDefault()}>
-            <div className="input-wrapper">
-              <input 
-                type="email" 
-                placeholder="Tu email" 
-                aria-label="Ingresa tu email"
-                required
-              />
-              <button type="submit" aria-label="Suscribirse al newsletter">
-                <FaEnvelope />
-              </button>
-            </div>
+            <input 
+              type="email" 
+              placeholder="Tu email" 
+              aria-label="Email"
+              required
+            />
+            <button type="submit" aria-label="Suscribirse">
+              <FaEnvelope />
+            </button>
           </form>
         </div>
 
         {/* Redes sociales */}
         <div className="footer-social">
           <h3>Síguenos</h3>
-          <div className="social-links">
+          <div className="social-icons">
             <a href="#" aria-label="Instagram"><FaInstagram /></a>
             <a href="#" aria-label="Facebook"><FaFacebookF /></a>
             <a href="#" aria-label="WhatsApp"><FaWhatsapp /></a>
@@ -77,11 +69,10 @@ function Footer() {
 
       </div>
 
-      {/* Bottom CENTRADO */}
-      <div className="footer-bottom">
+        <div className="footer-bottom">
         <div className="divider"></div>
         <div className="bottom-content">
-          <p>&copy; {new Date().getFullYear()} Kaldi Café. Hecho con <span className="heart">amor</span> y café.</p>
+          <p>&copy; {new Date().getFullYear()} Kaldi Café. Todos los derechos reservados.</p>
         </div>
       </div>
     </footer>

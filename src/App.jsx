@@ -8,18 +8,19 @@ import Reservation from './components/Reservation'
 import ContactMap from './components/Contactmap'
 import './index.css'
 
+
 function App () {
 
   return (
     <>
-      <Header />
-      <Main />
-      <Menu />
-      <AboutUs />
-      <Gallery />
-      <Reservation />
-      <ContactMap />
-      <Footer />
+        <Header />
+        <Main />
+        <Menu />
+        <AboutUs />
+        <Gallery />
+        <Reservation />
+        <ContactMap />
+        <Footer />
     </>
   )
 }

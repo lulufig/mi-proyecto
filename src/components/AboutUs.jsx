@@ -1,18 +1,21 @@
 import React from 'react';
+import useScrollReveal from '../hooks/useScrollReveal';
 import '../components/styles/AboutUs.css';
 
 const AboutUs = () => {
+  // Hook para animaciones al hacer scroll
+  useScrollReveal( '.animada', 0.4 );
   return (
     <section className="about-section" id="historia">
       
       <div className="about-container">
         
         {/* Título Principal */}
-        <h2 className="about-title">Sobre Nosotros</h2>
-        <div className="title-underline"></div>
+        <h2 className="about-title animada zoom-in ">Sobre Nosotros</h2>
+        <div className="title-underline animada zoom-in"></div>
 
         {/* Contenido Principal */}
-        <div className="about-content">
+        <div className="about-content animada slide-up">
           
           <div className="about-text">
             <p className="intro-paragraph">
@@ -35,7 +38,7 @@ const AboutUs = () => {
             </p>
           </div>
 
-          <div className="about-values">
+          <div className="about-values animada fade-left">
             <div className="value-box">
               <h3>Nuestra Misión</h3>
               <p>
@@ -64,7 +67,7 @@ const AboutUs = () => {
         </div>
 
         {/* Cita Final */}
-        <blockquote className="about-quote">
+        <blockquote className="about-quote animada zoom-in">
           "Cada taza cuenta una historia, cada sorbo una conexión."
         </blockquote>
 

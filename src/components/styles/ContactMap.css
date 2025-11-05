@@ -23,11 +23,10 @@
   background:#3e2a23;
   backdrop-filter: blur(8px);
   padding: 1.8rem 2.2rem;
-  border-radius: 18px;
+  border-radius: 4px;
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
   text-align: center;
   max-width: 340px;
-  font-family: var(--body-font);
   color:#fff;
   z-index: 2;
   border: 1px solid rgba(167, 154, 133, 0.25);
@@ -36,8 +35,8 @@
 }
 
 .map-overlay-card h3 {
-  font-family: var(--title-font);
-  font-size: 1.9rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
   margin-bottom: 0.6rem;
   color: #fff;
 }
@@ -55,20 +54,16 @@
   display: inline-block;
   margin-top: 1.2rem;
   padding: 0.75rem 1.8rem;
-  background-color: var(--color-accent);
-  color:#fff;
+  background-color: #e5e5e5;
+  color:#3e2a23;
   text-decoration: none;
-  border-radius: 30px;
-  font-weight: bold;
   font-size: 0.95rem;
   transition: all 0.3s ease;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
 }
 
 .btn-directions:hover {
-  background-color: var(--color-text);
   transform: translateY(-3px);
-  box-shadow: 0 8px 16px rgba(115, 113, 113, 0.2);
 }
 
 /* Animación de entrada */

@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import useScrollReveal from '../hooks/useScrollReveal';
 import '../components/styles/Gallery.css';
 
 const Gallery = () => {
+  // Hook para animaciones al hacer scroll
+  useScrollReveal('.animada');
+
   const [selectedImage, setSelectedImage] = useState(null);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -61,9 +65,9 @@ const Gallery = () => {
   return (
     <section className="gallery-section" id="galeria">
       <div className="gallery-container">
-        <div className="gallery-grid">
+        <div className="gallery-grid ">
           {images.map((img, idx) => (
-            <div key={idx} onClick={() => openLightbox(img, idx)} style={{ cursor: 'pointer', position: 'relative' }}>
+            <div className="animada zoom-in" key={idx} onClick={() => openLightbox(img, idx)} style={{ cursor: 'pointer', position: 'relative' }}>
               <img 
                 src={img.src} 
                 alt={img.alt}
