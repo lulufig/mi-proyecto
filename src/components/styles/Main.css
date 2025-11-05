@@ -1,0 +1,270 @@
+/* MAIN CONTAINER */
+.main {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* HERO SECTION */
+.hero {
+  background-image: url(/taza-de-cafe-con-granos-tostados[1].jpg);
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 3rem;
+}
+
+/* Overlay oscuro para mejor legibilidad */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
+  z-index: 1;
+}
+
+/* HERO TITLE GROUP */
+.hero-title-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* HERO TITLE */
+.hero-title {
+  font-size: 8rem;
+  font-weight: bold;
+  font-family: 'Playfair Display', serif;
+  margin: 0;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+  line-height: 1.1;
+}
+
+.title-line2 {
+  margin-left: 13rem;
+}
+
+/* HERO CONTENT */
+.hero-content {
+  text-align: left;
+  color: white;
+  max-width: 800px;
+  z-index: 2;
+  padding: 1rem;
+  position: relative;
+}
+
+/* HERO DIVIDER */
+.hero-divider {
+  width: 160px;
+  height: 2px;
+  background-color: #fff;
+  margin: 1rem auto;
+  border: none;
+}
+
+/* HERO SUBTITLE */
+.hero-subtitle {
+  text-align: center;
+  font-family: 'Playball', cursive;
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+  color: #fff;
+  margin-top: 30px;
+}
+
+/* HERO BUTTONS */
+.hero-buttons {
+  border: none;
+  border-radius: 5px;
+  font-family: var(--body-font);
+  text-decoration: none;
+  justify-content: flex-start;
+  gap: 2rem;
+  margin-top: 1.5rem;
+  margin-left: 28%;
+  display: flex;
+}
+
+/* BUTTON STYLES */
+.btn {
+  padding: 0.6rem 1.2rem;
+  border-radius: 5px;
+  font-weight: normal;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+  border: 2px solid #fff;
+  background-color: transparent;
+  color: #fff;
+  font-size: 1.1rem;
+  font-family: var(--body-font);
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ANIMACIONES */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    transform: translate(-50%, 20%); 
+    opacity: 0; 
+  }
+  to { 
+    transform: translate(-50%, -50%); 
+    opacity: 1; 
+  }
+}
+
+/* ==================== RESPONSIVE ==================== */
+
+/* Tablets grandes y laptops pequeñas (1200px) */
+@media (max-width: 1200px) {
+  .hero {
+    padding-left: 2rem;
+  }
+  
+  .hero-title {
+    font-size: 6.5rem;
+  }
+  
+  .title-line2 {
+    margin-left: 10rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.4rem;
+  }
+  
+  .hero-buttons {
+    margin-left: 25%;
+  }
+}
+
+/* Tablets (768px) */
+@media (max-width: 768px) {
+  .hero {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    min-height: 100vh;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .hero-content {
+    text-align: center;
+    padding: 1.5rem;
+  }
+  
+  .hero-title {
+    font-size: 5rem;
+  }
+  
+  .title-line2 {
+    margin-left: 0;
+  }
+  
+  .hero-divider {
+    width: 120px;
+    margin: 1.5rem auto;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.3rem;
+    margin-top: 20px;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-left: 0;
+    align-items: center;
+  }
+  
+  .btn {
+    width: 100%;
+    max-width: 280px;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+/* Móviles (480px) */
+@media (max-width: 480px) {
+  .hero {
+    min-height: 100vh;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .hero-content {
+    padding: 1rem;
+  }
+  
+  .hero-title {
+    font-size: 3.8rem;
+  }
+  
+  .hero-divider {
+    width: 100px;
+    margin: 1.2rem auto;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.15rem;
+    margin-top: 15px;
+    padding: 0 10px;
+  }
+  
+  .hero-buttons {
+    gap: 1rem;
+    margin-top: 1.2rem;
+  }
+  
+  .btn {
+    max-width: 250px;
+    padding: 0.7rem 1.3rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* Móviles muy pequeños (360px) */
+@media (max-width: 360px) {
+  .hero {
+    min-height: 100vh;
+  }
+  
+  .hero-title {
+    font-size: 3.2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.05rem;
+  }
+  
+  .btn {
+    max-width: 220px;
+    padding: 0.65rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}
+
+
