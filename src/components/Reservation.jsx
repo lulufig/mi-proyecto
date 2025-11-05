@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
+import useScrollReveal from '../hooks/useScrollReveal';
 import '../components/styles/Reservation.css'
 
 const Reservation = () => {
+  // Hook para animaciones al hacer scroll
+  useScrollReveal('.fade-in', 0.5);
+
   const [reservationData, setReservationData] = useState({ name: '', email: '', date: '' });
   const [showReservationModal, setShowReservationModal] = useState(false);
   const [showContactModal, setShowContactModal] = useState(false);
@@ -29,10 +33,10 @@ const Reservation = () => {
 
   return (
     <section className="section-wrapper" id="contacto">
-      <h2 className="section-title">Reservas & Contacto</h2>
+      <h2 className="section-title animada zoom-in">Reservas & Contacto</h2>
       <div className="section-divider"></div>
 
-      <div className="card-container">
+      <div className="card-container animada zoom-in">
         <div className="card fade-in">
           <h3 className="card-title">🗓️ Reservá tu visita</h3>
           <form onSubmit={handleReservationSubmit} noValidate>

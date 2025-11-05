@@ -7,13 +7,12 @@
 
 /* HERO SECTION */
 .hero {
-  background-image: url(/public/taza-de-cafe-con-granos-tostados[1].jpg);
+  background-image: url(/taza-de-cafe-con-granos-tostados[1].jpg);
   position: relative;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  height: 100vh;
-  min-height: 600px;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -75,7 +74,6 @@
 
 /* HERO SUBTITLE */
 .hero-subtitle {
-  color: var(--color-text);
   text-align: center;
   font-family: 'Playball', cursive;
   font-size: 1.6rem;
@@ -166,8 +164,7 @@
   .hero {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
-    height: 90vh;
-    min-height: 550px;
+    min-height: 100vh;
     justify-content: center;
     text-align: center;
   }
@@ -213,8 +210,7 @@
 /* Móviles (480px) */
 @media (max-width: 480px) {
   .hero {
-    height: 85vh;
-    min-height: 500px;
+    min-height: 100vh;
     padding-left: 1rem;
     padding-right: 1rem;
   }
@@ -253,7 +249,7 @@
 /* Móviles muy pequeños (360px) */
 @media (max-width: 360px) {
   .hero {
-    height: 80vh;
+    min-height: 100vh;
   }
   
   .hero-title {
