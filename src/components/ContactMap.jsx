@@ -1,6 +1,6 @@
 import React from 'react';
 import useScrollReveal from '../hooks/useScrollReveal';
-import '../components/styles/ContactMap.css';
+import '../components/styles/Contactmap.css';
 
 function ContactMap() {
   // Hook para animaciones al hacer scroll
