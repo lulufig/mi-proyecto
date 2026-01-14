@@ -1,137 +1,96 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import useScrollReveal from '../hooks/useScrollReveal';
 import '../components/styles/Gallery.css';
 
 const Gallery = () => {
-  // Hook para animaciones al hacer scroll
-  useScrollReveal('.animada');
+  // Hook para animaciones (solo para el título, el carrusel se anima solo)
+  useScrollReveal('.animada', 0.3);
 
   const [selectedImage, setSelectedImage] = useState(null);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
-  const [currentIndex, setCurrentIndex] = useState(0);
 
-  const images = [
-    { src: '/coffessHD.png', alt: 'Taza de café con arte latte' },
-    { src: '/cartelcoffekaldi.png', alt: 'Entrada con cartel Coffee Kaldi' },
-    { src: '/cafe-frio.png', alt: 'Café helado con leche' },
-    { src: '/croissant-2.png', alt: 'Croissant artesanal recién horneado' },
-    { src: '/exterior.png', alt: 'Vista exterior del local' },
-    { src: '/muffins.png', alt: 'Muffins caseros con azúcar' },
-    { src: '/interior-cafeteria1.png', alt: 'Vista interior del local' },
-    { src: '/barista-2.png', alt: 'Barista preparando café' },
-    { src: '/tortas-fac.png', alt: 'Exhibidor de pasteles' },
-    { src: '/caja-coffekaldi.png', alt: 'Pizarra de menú Coffee Kaldi' }
-  ];
+  // Tus imágenes originales
+  const originalImages = useMemo(() => [
+    { src: '/cartelcoffekaldi.png', alt: 'Cartel Kaldi' },
+    { src: '/cafe-frio.png', alt: 'Café Helado' },
+    { src: '/croissant-2.png', alt: 'Croissant' },
+    { src: '/exterior.png', alt: 'Fachada' },
+    { src: '/muffins.png', alt: 'Muffins' },
+    { src: '/interior-cafeteria1.png', alt: 'Interior' },
+    { src: '/barista-2.png', alt: 'Barista' },
+    { src: '/tortas-fac.png', alt: 'Pasteles' },
+    { src: '/caja-coffekaldi.png', alt: 'Menú' }
+  ], []);
 
-  const openLightbox = (img, idx) => {
+  // Duplicamos las imágenes para el efecto infinito (Loop) - memoizado
+  const carouselImages = useMemo(() => [...originalImages, ...originalImages], [originalImages]);
+
+  const openLightbox = useCallback((img) => {
     setSelectedImage(img);
-    setCurrentIndex(idx);
     setIsLightboxOpen(true);
     document.body.style.overflow = 'hidden';
-  };
+  }, []);
 
-  const closeLightbox = () => {
+  const closeLightbox = useCallback(() => {
     setIsLightboxOpen(false);
     setSelectedImage(null);
     document.body.style.overflow = 'auto';
-  };
+  }, []);
 
-  const prevImage = (e) => {
-    e.stopPropagation();
-    const newIndex = currentIndex === 0 ? images.length - 1 : currentIndex - 1;
-    setCurrentIndex(newIndex);
-    setSelectedImage(images[newIndex]);
-  };
-
-  const nextImage = (e) => {
-    e.stopPropagation();
-    const newIndex = currentIndex === images.length - 1 ? 0 : currentIndex + 1;
-    setCurrentIndex(newIndex);
-    setSelectedImage(images[newIndex]);
-  };
-
+  // Lógica de teclado para el lightbox
   useEffect(() => {
+    if (!isLightboxOpen) return;
     const handleKeyPress = (e) => {
-      if (!isLightboxOpen) return;
       if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowLeft') prevImage(e);
-      if (e.key === 'ArrowRight') nextImage(e);
     };
-
     window.addEventListener('keydown', handleKeyPress);
     return () => window.removeEventListener('keydown', handleKeyPress);
-  }, [isLightboxOpen, currentIndex]);
+  }, [isLightboxOpen, closeLightbox]);
 
   return (
     <section className="gallery-section" id="galeria">
-      <div className="gallery-container">
-        <div className="gallery-grid ">
-          {images.map((img, idx) => (
-            <div className="animada zoom-in" key={idx} onClick={() => openLightbox(img, idx)} style={{ cursor: 'pointer', position: 'relative' }}>
+      
+      {/* Header */}
+      <div className="gallery-header animada fade-in">
+        <h2 className="gallery-title">Instantes</h2>
+        <p className="gallery-subtitle">MOMENTOS QUE PERDURAN</p>
+      </div>
+
+      {/* Contenedor del Carrusel */}
+      <div className="carousel-container">
+        <div className="carousel-track">
+          {carouselImages.map((img, idx) => (
+            <div 
+              className="carousel-item" 
+              key={`${img.src}-${idx}`} // Key única
+              onClick={() => openLightbox(img)}
+            >
               <img 
                 src={img.src} 
-                alt={img.alt}
-                style={{
-                  width: '100%',
-                  height: 'auto',
-                  display: 'block',
-                  borderRadius: '15px',
-                  transition: 'transform 0.3s ease'
-                }}
-                loading="lazy"
-                onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
-                onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+                alt={img.alt} 
+                className="carousel-img"
+                loading="lazy" 
               />
-              <div 
-                style={{
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  width: '100%',
-                  height: '100%',
-                  background: 'rgba(0, 0, 0, 0.5)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  opacity: 0,
-                  transition: 'opacity 0.3s ease',
-                  borderRadius: '15px'
-                }}
-                onMouseEnter={(e) => e.currentTarget.style.opacity = '1'}
-                onMouseLeave={(e) => e.currentTarget.style.opacity = '0'}
-              >
-                <span style={{ fontSize: '4rem', color: 'white' }}>🔍</span>
+              <div className="carousel-overlay">
+                <span>Ver Imagen</span>
               </div>
             </div>
           ))}
         </div>
       </div>
 
+      {/* Lightbox (Visor) */}
       {isLightboxOpen && (
-        <div className="lightbox" onClick={closeLightbox}>
-          <button className="lightbox-close" onClick={closeLightbox}>
-            &times;
-          </button>
-          
-          <button className="lightbox-prev" onClick={prevImage}>
-            &#8249;
-          </button>
-          
-          <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
+        <div className="lightbox" onClick={closeLightbox} role="dialog" aria-modal="true" aria-label="Visor de imagen">
+          <button className="lightbox-close" onClick={closeLightbox} aria-label="Cerrar visor de imagen">&times;</button>
+          <div className="lightbox-content" onClick={e => e.stopPropagation()}>
             <img 
               src={selectedImage?.src} 
-              alt={selectedImage?.alt}
+              alt={selectedImage?.alt} 
               className="lightbox-image"
             />
             <p className="lightbox-caption">{selectedImage?.alt}</p>
-            <span className="lightbox-counter">
-              {currentIndex + 1} / {images.length}
-            </span>
           </div>
-          
-          <button className="lightbox-next" onClick={nextImage}>
-            &#8250;
-          </button>
         </div>
       )}
     </section>

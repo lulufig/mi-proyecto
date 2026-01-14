@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap:https://mi-proyecto-zeta-two.vercel.app/sitemap.xml
+
+# Disallow admin areas (si existen en el futuro)
+# Disallow: /admin/
