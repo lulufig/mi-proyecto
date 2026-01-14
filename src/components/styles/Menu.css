@@ -1,344 +1,280 @@
-
-/* === MENÚ MINIMALISTA CON CARRUSEL === */
+/* === SECCIÓN MENÚ === */
 .menu-section {
-  background: #fafafa;
+  background-color: var(--color-bg-light);
   padding: 8rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-section::before {
+  content: '';
+  position: absolute;
+  top: 5%;
+  right: -5%;
+  width: 300px;
+  height: 300px;
+  background-image: url('/granos-derecha.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.03;
+  transform: rotate(180deg);
+  pointer-events: none;
 }
 
 .menu-container {
   max-width: 1400px;
   margin: 0 auto;
+  position: relative;
+  z-index: 2;
 }
 
-/* === HEADER === */
+/* === HEADER DEL MENÚ === */
 .menu-header {
   text-align: center;
   margin-bottom: 4rem;
 }
 
 .menu-header h2 {
-  font-size: 3rem;
-  font-family: 'Playfair Display', serif;
-  color: #2e1f17;
-  margin: 0 0 1.5rem;
-  font-weight: 400;
-  letter-spacing: 0.5px;
+  font-size: 3.5rem;
+  font-family: var(--font-serif);
+  color: var(--color-espresso);
+  margin: 0;
+  font-weight: 500;
+  letter-spacing: -1px;
 }
 
 .menu-line {
-  width: 60px;
+  width: 40px;
   height: 2px;
-  background: #2e1f17;
-  margin: 0 auto;
+  background-color: var(--color-gold);
+  margin: 1.5rem auto 0;
 }
 
 /* === CATEGORÍAS === */
 .menu-categories {
   display: flex;
   justify-content: center;
-  gap: 1rem;
-  margin-bottom: 5rem;
-  flex-wrap: wrap;
+  gap: 3rem;
+  margin-bottom: 4rem;
+  border-bottom: 1px solid rgba(35, 31, 32, 0.08);
+  padding-bottom: 0;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .menu-categories button {
-  padding: 0.8rem 2rem;
-  background: #fff;
-  border: 1px solid #e0e0e0;
-  color: #5a5a5a;
-  font-size: 1rem;
-  font-weight: 400;
+  padding: 0 0 1rem 0;
+  background: transparent;
+  border: none;
+  color: var(--color-text-muted);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   cursor: pointer;
   transition: all 0.3s ease;
-  letter-spacing: 0.5px;
+  position: relative;
+}
+
+.menu-categories button::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--color-espresso);
+  transition: width 0.3s ease;
 }
 
 .menu-categories button:hover {
-  border-color: #2e1f17;
-  color: #2e1f17;
-  transform: translateY(-2px);
+  color: var(--color-espresso);
 }
 
 .menu-categories button.active {
-  background: #2e1f17;
-  color: #fff;
-  border-color: #2e1f17;
+  color: var(--color-espresso);
+}
+
+.menu-categories button.active::after {
+  width: 100%;
 }
 
 /* === CARRUSEL WRAPPER === */
 .menu-carousel-wrapper {
   position: relative;
-  padding: 0 60px;
+  padding: 0 20px;
 }
 
 /* === BOTONES DE NAVEGACIÓN === */
 .carousel-btn {
   position: absolute;
-  top: 50%;
+  top: 40%;
   transform: translateY(-50%);
-  width: 50px;
-  height: 50px;
-  background: #fff;
-  border: 1px solid #e0e0e0;
-  color: #2e1f17;
-  font-size: 1.5rem;
+  width: 45px;
+  height: 45px;
+  background: white;
+  border: 1px solid rgba(35, 31, 32, 0.1);
+  color: var(--color-espresso);
+  font-size: 1.2rem;
+  border-radius: 50%;
   cursor: pointer;
   z-index: 10;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
 .carousel-btn:hover {
-  background: #2e1f17;
-  color: #fff;
-  border-color: #2e1f17;
+  background: var(--color-espresso);
+  color: white;
+  border-color: var(--color-espresso);
   transform: translateY(-50%) scale(1.1);
 }
 
-.carousel-btn-left {
-  left: 0;
-}
-
-.carousel-btn-right {
-  right: 0;
-}
+.carousel-btn-left { left: -10px; }
+.carousel-btn-right { right: -10px; }
 
 /* === CARRUSEL === */
 .menu-carousel {
   display: flex;
-  gap: 2rem;
+  gap: 2.5rem;
   overflow-x: auto;
   scroll-behavior: smooth;
-  padding: 1rem 0;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE/Edge */
+  padding: 2rem 0.5rem;
+  scrollbar-width: none;
 }
 
 .menu-carousel::-webkit-scrollbar {
-  display: none; /* Chrome/Safari */
+  display: none;
 }
 
-/* === ITEM === */
+/* === ITEM DEL MENÚ === */
 .menu-item {
   flex: 0 0 320px;
-  background: #fff;
-  overflow: hidden;
-  transition: all 0.3s ease;
-  scroll-snap-align: start;
+  background: transparent;
+  border-radius: 0;
+  transition: transform 0.4s ease;
+  position: relative;
 }
 
 .menu-item:hover {
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-  transform: translateY(-5px);
+  transform: translateY(-8px);
 }
 
-/* === IMAGEN === */
 .item-image {
   position: relative;
   width: 100%;
-  height: 300px;
+  height: 380px;
   overflow: hidden;
-  background: #f5f5f5;
+  border-radius: 8px;
+  background: #e0e0e0;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
 }
 
 .item-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.4s ease;
+  transition: transform 0.6s ease;
 }
 
 .menu-item:hover .item-image img {
-  transform: scale(1.08);
+  transform: scale(1.05);
 }
 
-/* === BADGE === */
 .item-badge {
   position: absolute;
-  top: 1.2rem;
-  right: 1.2rem;
-  background: #2e1f17;
-  color: #fff;
-  padding: 0.4rem 1rem;
-  font-size: 0.75rem;
-  font-weight: 500;
+  top: 1rem;
+  left: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--color-espresso);
+  padding: 0.3rem 0.8rem;
+  font-size: 0.7rem;
+  font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
+  border-radius: 4px;
+  backdrop-filter: blur(4px);
 }
 
-/* === CONTENIDO === */
 .item-content {
-  padding: 2rem 1.8rem;
-  text-align: center;
+  padding: 1.5rem 0 0 0;
+  text-align: left;
 }
 
 .item-name {
-  font-size: 1.5rem;
-  font-family: 'Playfair Display', serif;
-  color: #2e1f17;
-  margin: 0 0 0.8rem;
+  font-size: 1.4rem;
+  font-family: var(--font-serif);
+  color: var(--color-espresso);
+  margin: 0 0 0.4rem;
   font-weight: 500;
 }
 
 .item-price {
-  font-size: 1.3rem;
-  color: #2e1f17;
+  font-size: 1.1rem;
+  color: var(--color-gold);
+  font-family: var(--font-sans);
   font-weight: 500;
-  margin: 0 0 1.2rem;
+  margin: 0 0 0.8rem;
 }
 
 .item-description {
-  font-size: 0.95rem;
-  line-height: 1.7;
-  color: #5a5a5a;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--color-text-light);
   margin: 0;
   font-weight: 300;
+  font-family: var(--font-sans);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 /* === INDICADOR DE SCROLL === */
 .scroll-hint {
   text-align: center;
-  margin-top: 2.5rem;
-  font-size: 0.95rem;
-  color: #999;
-  font-weight: 300;
-  letter-spacing: 0.5px;
+  margin-top: 3rem;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.7;
 }
-
-
 
 /* === RESPONSIVE === */
 @media (max-width: 992px) {
-  .menu-carousel-wrapper {
-    padding: 0 50px;
-  }
-
-  .carousel-btn {
-    width: 45px;
-    height: 45px;
-    font-size: 1.3rem;
-  }
-
-  .menu-item {
-    flex: 0 0 300px;
-  }
+  .menu-categories { gap: 2rem; }
+  .carousel-btn { width: 40px; height: 40px; }
 }
 
 @media (max-width: 768px) {
-  .menu-section {
-    padding: 5rem 1.5rem;
-  }
-
-  .menu-header h2 {
-    font-size: 2.2rem;
-  }
-
-  .menu-header {
-    margin-bottom: 3rem;
-  }
-
+  .menu-section { padding: 5rem 1rem; }
+  
+  .menu-header h2 { font-size: 2.5rem; }
+  
   .menu-categories {
-    gap: 0.8rem;
-    margin-bottom: 3.5rem;
-  }
-
-  .menu-categories button {
-    padding: 0.7rem 1.5rem;
-    font-size: 0.95rem;
-  }
-
-  .menu-carousel-wrapper {
-    padding: 0 40px;
-  }
-
-  .carousel-btn {
-    width: 40px;
-    height: 40px;
-    font-size: 1.2rem;
-  }
-
-  .menu-item {
-    flex: 0 0 280px;
-  }
-
-  .item-image {
-    height: 260px;
-  }
-
-  .item-content {
-    padding: 1.5rem 1.3rem;
-  }
-
-  .item-name {
-    font-size: 1.4rem;
-  }
-
-  .item-price {
-    font-size: 1.2rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .menu-section {
-    padding: 4rem 1rem;
-  }
-
-  .menu-header h2 {
-    font-size: 1.8rem;
-  }
-
-  .menu-categories {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.8rem;
-  }
-
-  .menu-categories button {
-    width: 100%;
-  }
-
-  .menu-carousel-wrapper {
-    padding: 0 35px;
-  }
-
-  .carousel-btn {
-    width: 35px;
-    height: 35px;
-    font-size: 1rem;
-  }
-
-  .menu-carousel {
     gap: 1.5rem;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding-bottom: 0.5rem;
+    width: 100%;
+    white-space: nowrap;
+    border-bottom: 1px solid rgba(58, 36, 25, 0.1);
   }
-
-  .menu-item {
-    flex: 0 0 260px;
-  }
-
-  .item-image {
-    height: 240px;
-  }
-
-  .item-content {
-    padding: 1.5rem 1rem;
-  }
-
-  .item-name {
-    font-size: 1.3rem;
-  }
-
-  .item-price {
-    font-size: 1.15rem;
-  }
-
-  .item-description {
-    font-size: 0.9rem;
-  }
-
-  .scroll-hint {
-    font-size: 0.85rem;
-    margin-top: 2rem;
-  }
+  
+  .menu-categories::-webkit-scrollbar { display: none; }
+  
+  .menu-item { flex: 0 0 260px; }
+  .item-image { height: 320px; }
+  .item-name { font-size: 1.25rem; }
+  
+  .carousel-btn { display: none; } 
+  .menu-carousel-wrapper { padding: 0; }
 }

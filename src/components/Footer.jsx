@@ -44,15 +44,22 @@ function Footer() {
         <div className="footer-newsletter">
           <h3>Newsletter</h3>
           <p>Recibe noticias y ofertas</p>
-          <form className="newsletter-form" onSubmit={(e) => e.preventDefault()}>
+          <form 
+            className="newsletter-form" 
+            onSubmit={(e) => e.preventDefault()}
+            aria-label="Formulario de suscripción al newsletter"
+          >
+            <label htmlFor="newsletter-email" className="sr-only">Email para newsletter</label>
             <input 
               type="email" 
+              id="newsletter-email"
+              name="newsletter-email"
               placeholder="Tu email" 
-              aria-label="Email"
+              aria-label="Email para newsletter"
               required
             />
-            <button type="submit" aria-label="Suscribirse">
-              <FaEnvelope />
+            <button type="submit" aria-label="Suscribirse al newsletter">
+              <FaEnvelope aria-hidden="true" />
             </button>
           </form>
         </div>

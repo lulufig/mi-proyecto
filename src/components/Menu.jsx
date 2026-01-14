@@ -1,23 +1,25 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useMemo, useCallback } from 'react';
 import menuData from '../data/menuData.json';
 import useScrollReveal from '../hooks/useScrollReveal';
 import '../components/styles/Menu.css';
 
 function Menu() {
   // Hook para animaciones al hacer scroll
-  useScrollReveal('.animada', 0.6);
+  useScrollReveal('.animada', 0.3);
   
 
   const [selectedCategory, setSelectedCategory] = useState('all');
   const scrollContainerRef = useRef(null);
 
-  // Filtrar ítems según categoría seleccionada
-  const filteredItems = selectedCategory === 'all'
-    ? menuData.flatMap(category => category.items)
-    : menuData.find(category => category.categoria === selectedCategory)?.items || [];
+  // Filtrar ítems según categoría seleccionada (memoizado)
+  const filteredItems = useMemo(() => {
+    return selectedCategory === 'all'
+      ? menuData.flatMap(category => category.items)
+      : menuData.find(category => category.categoria === selectedCategory)?.items || [];
+  }, [selectedCategory]);
 
-  // Función para desplazar el contenedor
-  const scroll = (direction) => {
+  // Función para desplazar el contenedor (memoizada)
+  const scroll = useCallback((direction) => {
     if (scrollContainerRef.current) {
       const scrollAmount = 350;
       scrollContainerRef.current.scrollBy({
@@ -25,14 +27,19 @@ function Menu() {
         behavior: 'smooth'
       });
     }
-  };
+  }, []);
+
+  // Handlers memoizados para categorías
+  const handleCategoryChange = useCallback((category) => {
+    setSelectedCategory(category);
+  }, []);
 
   return (
-    <section className="menu-section animada zoom-in" id="menu">
+    <section className="menu-section" id="menu">
       
       <div className="menu-container">
         {/* Título */}
-        <div className="menu-header">
+        <div className="menu-header animada fade-in">
           <h2>Nuestro Menú</h2>
           <div className="menu-line"></div>
         </div>
@@ -41,7 +48,7 @@ function Menu() {
         <div className="menu-categories">
           <button
             className={selectedCategory === 'all' ? 'active' : ''}
-            onClick={() => setSelectedCategory('all')}
+            onClick={() => handleCategoryChange('all')}
           >
             Todos
           </button>
@@ -49,7 +56,7 @@ function Menu() {
             <button
               key={category.categoria}
               className={selectedCategory === category.categoria ? 'active' : ''}
-              onClick={() => setSelectedCategory(category.categoria)}
+              onClick={() => handleCategoryChange(category.categoria)}
             >
               {category.categoria}
             </button>
@@ -64,14 +71,15 @@ function Menu() {
             className="carousel-btn carousel-btn-left"
             onClick={() => scroll('left')}
             aria-label="Desplazar hacia la izquierda"
+            type="button"
           >
             ←
           </button>
 
           {/* Contenedor desplazable */}
           <div className="menu-carousel" ref={scrollContainerRef}>
-            {filteredItems.map((item, index) => (
-              <article key={index} className="menu-item">
+            {filteredItems.map((item) => (
+              <article key={`${item.nombre}-${item.image}`} className="menu-item">
                 
                 {/* Imagen */}
                 <div className="item-image">
@@ -79,6 +87,9 @@ function Menu() {
                     src={item.image}
                     alt={item.nombre}
                     loading="lazy"
+                    width="400"
+                    height="400"
+                    decoding="async"
                   />
                   {item.popular && <span className="item-badge">Popular</span>}
                 </div>
@@ -99,6 +110,7 @@ function Menu() {
             className="carousel-btn carousel-btn-right"
             onClick={() => scroll('right')}
             aria-label="Desplazar hacia la derecha"
+            type="button"
           >
             →
           </button>

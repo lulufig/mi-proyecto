@@ -1,90 +1,218 @@
+/* === MAPA DE CONTACTO === */
+
 .contact-map-wrapper {
   position: relative;
   width: 100%;
   height: 500px;
-  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(71, 58, 53, 0.2);
-  margin: 0 0 0 0; /* QUITAMOS margin-bottom */
-  border: none;
+  margin: 0;
+  background-color: var(--color-bg-neutral);
 }
-.contact-map-wrapper iframe {
+
+.map-iframe {
   width: 100%;
   height: 100%;
   border: 0;
   display: block;
+  filter: grayscale(100%) contrast(1.05) brightness(1.02);
+  transition: filter 0.5s ease;
 }
-/* CARD CENTRADO */
+
+.contact-map-wrapper:hover .map-iframe {
+  filter: grayscale(85%) contrast(1.02) brightness(1.01);
+}
+
+/* === TARJETA FLOTANTE === */
 .map-overlay-card {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background:#3e2a23;
-  backdrop-filter: blur(8px);
-  padding: 1.8rem 2.2rem;
-  border-radius: 4px;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
-  text-align: center;
-  max-width: 340px;
-  color:#fff;
-  z-index: 2;
-  border: 1px solid rgba(167, 154, 133, 0.25);
-  animation: fadeInUp 0.8s ease-out;
   
+  background-color: var(--color-bg-white);
+  color: var(--color-espresso);
+  
+  padding: 3rem 2.5rem;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  
+  box-shadow: 0 4px 24px rgba(35, 31, 32, 0.08);
+  border: 1px solid rgba(35, 31, 32, 0.06);
+  z-index: 2;
+  
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.map-overlay-card:hover {
+  transform: translate(-50%, -50%) translateY(-2px);
+  box-shadow: 0 8px 32px rgba(35, 31, 32, 0.12);
 }
 
 .map-overlay-card h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.5rem;
-  margin-bottom: 0.6rem;
-  color: #fff;
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  margin: 0 0 1.5rem 0;
+  color: var(--color-espresso);
+  font-weight: 400;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
 }
 
-.map-overlay-card p {
-  margin: 0.5rem 0;
+.card-divider {
+  width: 30px;
+  height: 1px;
+  background-color: var(--color-gold);
+  margin: 0 auto 2rem;
+  opacity: 0.4;
+}
+
+.card-info {
+  margin-bottom: 2rem;
+}
+
+.info-label {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--color-text-muted);
+  margin: 0 0 0.4rem 0;
+  font-weight: 500;
+}
+
+.info-text {
+  font-family: var(--font-serif);
   font-size: 1rem;
+  margin: 0 0 1.5rem 0;
+  color: var(--color-espresso);
   line-height: 1.5;
-  color: #fff;
+  font-weight: 300;
 }
 
+.info-text:last-child {
+  margin-bottom: 0;
+}
 
-
+/* === BOTÓN === */
 .btn-directions {
   display: inline-block;
-  margin-top: 1.2rem;
-  padding: 0.75rem 1.8rem;
-  background-color: #e5e5e5;
-  color:#3e2a23;
+  padding: 0.9rem 2.5rem;
+  
+  background-color: transparent;
+  border: 1px solid var(--color-espresso);
+  color: var(--color-espresso);
+  
   text-decoration: none;
-  font-size: 0.95rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  
   transition: all 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
 }
 
 .btn-directions:hover {
-  transform: translateY(-3px);
+  background-color: var(--color-espresso);
+  color: var(--color-bg-white);
+  transform: translateY(-1px);
 }
 
-/* Animación de entrada */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translate(-50%, -40%); }
-  to { opacity: 1; transform: translate(-50%, -50%); }
+.btn-directions:active {
+  transform: translateY(0);
 }
 
-/* Responsive */
+/* === RESPONSIVE === */
+@media (max-width: 992px) {
+  .contact-map-wrapper {
+    height: 450px;
+  }
+
+  .map-overlay-card {
+    padding: 2.5rem 2rem;
+    max-width: 380px;
+  }
+
+  .map-overlay-card h3 {
+    font-size: 1.75rem;
+  }
+}
+
 @media (max-width: 768px) {
   .contact-map-wrapper {
     height: 400px;
   }
 
   .map-overlay-card {
-    padding: 1.4rem 1.8rem;
-    max-width: 90%;
-    font-size: 0.95rem;
+    padding: 2rem 1.5rem;
+    width: 88%;
+    max-width: 340px;
   }
 
   .map-overlay-card h3 {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .card-divider {
+    margin-bottom: 1.5rem;
+  }
+
+  .info-text {
+    font-size: 0.95rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .card-info {
+    margin-bottom: 1.5rem;
+  }
+
+  .btn-directions {
+    padding: 0.85rem 2rem;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-map-wrapper {
+    height: 350px;
+  }
+
+  .map-overlay-card {
+    padding: 1.75rem 1.25rem;
+    width: 90%;
+    max-width: 300px;
+  }
+
+  .map-overlay-card h3 {
+    font-size: 1.35rem;
+    margin-bottom: 1rem;
+  }
+
+  .card-divider {
+    width: 25px;
+    margin-bottom: 1.25rem;
+  }
+
+  .info-label {
+    font-size: 0.65rem;
+    letter-spacing: 1.5px;
+  }
+
+  .info-text {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .card-info {
+    margin-bottom: 1.25rem;
+  }
+
+  .btn-directions {
+    padding: 0.8rem 1.75rem;
+    font-size: 0.7rem;
+    width: 100%;
   }
 }

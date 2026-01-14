@@ -3,54 +3,46 @@ import useScrollReveal from '../hooks/useScrollReveal';
 import '../components/styles/Main.css';
 
 const Main = () => {
-  // Hook para animaciones al hacer scroll
-  useScrollReveal( '.animada', 0.7);
-  
-  // Función para hacer scroll suave a una sección
-  const scrollToSection = (sectionId) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-  };
+  // Hook para animaciones
+  useScrollReveal('.animada', 0.8);
 
   return (
     <main className="main">
       <section className="hero" id="inicio">
-        {/* Contenido superpuesto */}
+        
+        {/* Imágenes Decorativas */}
+        <img 
+          src="/rama-de-cafe.webp" 
+          alt="" 
+          className="coffee-beans-left"
+          loading="lazy"
+          aria-hidden="true"
+        />
+        
+        <img 
+          src="/granos-de-cafe-2.webp" 
+          alt="" 
+          className="coffee-beans-right"
+          loading="lazy"
+          aria-hidden="true"
+        />
+        
+        {/* Contenido Principal */}
         <div className="hero-content animada zoom-in">
-          <div className="hero-title-group">
-            <h1 className="hero-title">
-              <span className="title-line1">KALDI</span>
-              <br />
-              <span className="title-line2">CAFÉ</span>
-            </h1>
-          </div>
-
-          <hr className="hero-divider" />
+          <h1 className="hero-title">
+            <span className="title-line1">KALDI</span>
+            <span className="title-line2">CAFÉ</span>
+          </h1>
 
           <p className="hero-subtitle">
-            Descubre el sabor auténtico del café artesanal en un ambiente único.
+            Desde 2020. El arte del espresso.
           </p>
-
-          <div className="hero-buttons">
-            <button 
-              onClick={() => scrollToSection('contacto')}
-              className="btn"
-            >
-              Reservar ahora
-            </button>
-            <button 
-              onClick={() => scrollToSection('menu')}
-              className="btn"
-            >
-              Ver menú
-            </button>
-          </div>
+          
+          
         </div>
+
+        {/* Indicador de Scroll (Flecha o mouse) */}
+        <div className="scroll-indicator" aria-hidden="true"></div>
       </section>
     </main>
   );

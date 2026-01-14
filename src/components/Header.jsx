@@ -1,18 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { FaCoffee } from 'react-icons/fa';
 import '../components/styles/Header.css';
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const handleScrollRef = useRef(null);
 
   useEffect(() => {
-    const handleScroll = () => {
+    // Usar useRef para mantener la referencia estable del handler
+    handleScrollRef.current = () => {
       setScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const handleScroll = handleScrollRef.current;
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   const toggleMenu = () => {
@@ -33,7 +39,7 @@ const Header = () => {
           </div>
 
         {/* Navegación Desktop */}
-        <nav className="header-nav">
+        <nav className="header-nav" aria-label="Navegación principal">
           <a href="#inicio">Inicio</a>
           <a href="#menu">Menú</a>
           <a href="#historia">Historia</a>
@@ -44,22 +50,29 @@ const Header = () => {
         <button 
           className={`menu-toggle ${menuOpen ? 'active' : ''}`}
           onClick={toggleMenu}
-          aria-label="Toggle menu"
+          aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
+          aria-expanded={menuOpen}
+          aria-controls="mobile-menu"
         >
-          <span></span>
-          <span></span>
-          <span></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
         </button>
 
       </div>
 
       {/* Menú Mobile */}
-      <div className={`mobile-menu ${menuOpen ? 'active' : ''}`}>
+      <nav 
+        id="mobile-menu"
+        className={`mobile-menu ${menuOpen ? 'active' : ''}`}
+        aria-label="Menú de navegación móvil"
+        aria-hidden={!menuOpen}
+      >
         <a href="#inicio" onClick={closeMenu}>Inicio</a>
         <a href="#menu" onClick={closeMenu}>Menú</a>
         <a href="#historia" onClick={closeMenu}>Historia</a>
         <a href="#contacto" onClick={closeMenu}>Contacto</a>
-      </div>
+      </nav>
     </header>
   );
 };

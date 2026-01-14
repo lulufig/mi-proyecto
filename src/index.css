@@ -1,67 +1,78 @@
-
 :root {
-  --color-bg: #FAF1E6;
-  --color-text: #473A35;
-  --color-accent: #A79A85;
-  --title-font: 'Playball', cursive;
-  --body-font: 'Alice', serif;
+  /* === PALETA DE COLORES KALDI (CORREGIDA) === */
+  
+  /* FONDO */
+  --color-bg-light: #F9F7F4;   /* Crema Suave */
+  --color-bg-white: #FFFFFF;
+  --color-bg-neutral: #F2EFE9; /* Beige grisáceo para transiciones */
+
+  /* COLORES PRINCIPALES */
+  --color-espresso: #2C1E16;   /* <--- CAMBIO CLAVE: Marrón Café Profundo (No negro) */
+  --color-gold: #C5A059;       /* <--- CAMBIO CLAVE: Dorado Champán (Brillante) */
+  
+  /* TEXTOS */
+  --color-text: #2C1E16;       /* Usamos el espresso para texto */
+  --color-text-light: #6E6E6E; /* Gris cálido */
+  --color-text-muted: #9CA3AF;
+  
+  /* FUENTES */
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Montserrat', sans-serif;
 }
 
-
-/* Estilos globales para eliminar márgenes y asegurar ancho completo */
+/* Resto del CSS igual... */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body, html {
-  overflow-x: hidden; /* Evita desplazamiento horizontal */
-  margin: 0;
-  padding: 0;
-  
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background-color: var(--color-bg-light);
+  line-height: 1.7;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;  /*Espaciado interno*/ 
+/* Selección de texto con el nuevo dorado */
+::selection {
+  background-color: var(--color-gold);
+  color: #fff;
 }
 
-html {
-  scroll-behavior: smooth;
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  color: var(--color-espresso);
+  font-weight: 500;
+  margin-bottom: 1rem;
 }
 
-/* Base */
+/* Skip link para accesibilidad */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-espresso);
+  color: var(--color-bg-white);
+  padding: 8px 16px;
+  text-decoration: none;
+  z-index: 10000;
+  font-weight: 600;
+  border-radius: 0 0 4px 0;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Utilidades de animación (Mantenlas igual) */
 .animada {
   opacity: 0;
-  transform: translateY(50px);
-  transition: all 1.5s ease-out;
+  transform: translateY(40px);
+  transition: opacity 1s ease-out, transform 1s cubic-bezier(0.215, 0.610, 0.355, 1.000);
 }
-
 .animada.visible {
   opacity: 1;
   transform: translateY(0);
 }
-
-/* Variantes */
-.fade-left {
-  transform: translateX(-50px);
-}
-.fade-left.visible {
-  transform: translateX(0);
-}
-
-.zoom-in {
-  transform: scale(0.8);
-}
-.zoom-in.visible {
-  transform: scale(1);
-}
-
-.slide-up {
-  transform: translateY(50px);
-}
-.slide-up.visible {
-  transform: translateY(0);
-}
+/* ... resto de animaciones ... */
